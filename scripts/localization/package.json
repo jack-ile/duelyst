@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "npm-run": "^4.1.2"
+    "npm-run": "^5.0.0"
   }
 }
