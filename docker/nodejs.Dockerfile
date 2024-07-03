@@ -5,6 +5,20 @@ FROM node:18-slim
 # TODO: Isolate bcrypt dependencies to API images only.
 RUN apt-get update && apt-get -y install python3 make gcc g++ git
 
+# TODO: vv Remove this code once zlib1g@1:1.2.13 is no longer distributed in the node base image
+
+# Patch out zlib vulnerability SNYK-DEBIAN12-ZLIB-6008963 (https://security.snyk.io/vuln/SNYK-DEBIAN12-ZLIB-6008963)
+# Completely purge zlib1g@1:1.2.13 from the image, this comes installed by default and contains the vulnerability
+RUN apt-get -y purge zlib1g && \
+    apt-get -y autoremove && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Replace the former zlib package with the newest after apt-get update without the vulnerability
+RUN apt-get -y install zlib1g
+
+# TODO: ^^ Remove this code once zlib1g@1:1.2.13 is no longer distributed in the node base image
+
 # Work around boneskull/yargs dependency using the deprecated git protocol.
 RUN git config --global url."https://github.com/".insteadOf git@github.com:
 RUN git config --global url."https://".insteadOf git://
