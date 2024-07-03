@@ -14,12 +14,32 @@ ignore:
         created: 2022-09-27T02:50:48.546Z
   SNYK-JS-PUG-1071616:
     - '*':
-        reason: No newer version of Kue is available
+        reason: No newer version of Kue is available, and Kue never ingests TCP requests from outside the VPC
         expires: 2032-12-31T23:59:59.999Z
         created: 2022-09-27T02:53:57.988Z
   SNYK-JS-ANSIREGEX-1583908:
     - '*':
-        reason: No newer version of Kue is available
+        reason: No newer version of Kue is available, and Kue never ingests TCP requests from outside the VPC
         expires: 2032-12-31T23:59:59.999Z
         created: 2022-09-27T02:54:20.668Z
+  SNYK-JS-DECODEURICOMPONENT-3149970:
+    - '*':
+        reason: No newer version of Kue is available, and Kue never ingests TCP requests from outside the VPC
+        expires: 2032-12-31T23:59:59.999Z
+        created: 2024-07-03T01:55:57.988Z
+  SNYK-JS-PUGCODEGEN-7086056:
+    - '*':
+        reason: No newer version of Kue is available, and Kue never ingests TCP requests from outside the VPC
+        expires: 2032-12-31T23:59:59.999Z
+        created: 2024-07-03T01:55:57.988Z
+  SNYK-JS-SEMVER-3247795:
+    - '*':
+        reason: No newer version of Kue is available, and Kue never ingests TCP requests from outside the VPC
+        expires: 2032-12-31T23:59:59.999Z
+        created: 2024-07-03T01:55:57.988Z
+  SNYK-DEBIAN12-ZLIB-6008963:
+    - '*':
+        reason: We do not use the MiniZip utility of zlib
+        expires: 2032-12-31T23:59:59.999Z
+        created: 2024-07-03T01:55:57.988Z
 patch: {}
