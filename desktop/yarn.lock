@@ -3529,10 +3529,10 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
-mixme@^0.5.4:
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/mixme/-/mixme-0.5.4.tgz#8cb3bd0cd32a513c161bf1ca99d143f0bcf2eff3"
-  integrity sha512-3KYa4m4Vlqx98GPdOHghxSdNtTvcP8E0kkaJ5Dlh+h2DRzF7zpuVVcA8B0QpKd11YJeP9QQ7ASkKzOeu195Wzw==
+mixme@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/mixme/-/mixme-1.1.0.tgz#60fa597de17fa8a22a5e6031880e612550343c37"
+  integrity sha512-FW2NBoUT8Klu+ZORq7SV7QKRjOZIpn2zSVVzZeADydewZpQhHy1wem04FDuz9RJCvUkjUPRdrsWt1Hia6x6cRw==
 
 mkdirp@^1.0.3, mkdirp@^1.0.4:
   version "1.0.4"
@@ -4049,12 +4049,12 @@ plist@^3.0.0, plist@^3.0.1, plist@^3.0.4:
     base64-js "^1.5.1"
     xmlbuilder "^15.1.1"
 
-plug-and-play@^2.4.0:
-  version "2.5.6"
-  resolved "https://registry.yarnpkg.com/plug-and-play/-/plug-and-play-2.5.6.tgz#6e963405e99ee08d9470c69a59a169bfee7e02a3"
-  integrity sha512-khsIOdO/Yb4Ngu4OdYzS5MF46ewaiZIJycZPWq54itspNNXlmJUNvXNDTwv/mKPsJ5lvanTD8WTWOFQIAI7qJw==
+plug-and-play@^2.5.8:
+  version "2.5.8"
+  resolved "https://registry.yarnpkg.com/plug-and-play/-/plug-and-play-2.5.8.tgz#2c3c1db4a7f9791b1f0bb610ba27d97e26320536"
+  integrity sha512-R7vbo+8O3kkPQGqIy44C4LBRB5Rhgg3U/6QCy0AqKEofoampqfVB7fgxzzgOd/OJh0boabjZy37LqGqDmXseKg==
   dependencies:
-    mixme "^0.5.4"
+    mixme "^1.1.0"
     toposort "^2.0.2"
 
 posix-character-classes@^0.1.0:
@@ -4549,14 +4549,14 @@ shebang-regex@^3.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
-shell@^0.9.4:
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/shell/-/shell-0.9.4.tgz#8bacfb822e1d656dba2d9ba6812f90612859125e"
-  integrity sha512-+ghvKO3N1/4/c5T30EPPQ80P3MjRtuOwQIfewyB2ZVgdzTjtuCJ42qF1QbfKxMqhdGZvjccpTQYkQ+Wwtm3hnQ==
+shell@^0.9.6:
+  version "0.9.6"
+  resolved "https://registry.yarnpkg.com/shell/-/shell-0.9.6.tgz#c0ac10f046e9202f920dcbf813d3abb9b1fc2df5"
+  integrity sha512-m8swPcLfkLl/rwPrmAgSSwhu6xYFCONzuWN/XFwpidaYRH9/b3DlBsWkbMWjNMJZMi6oJjAZ/+Igq4/ze8QZmQ==
   dependencies:
-    mixme "^0.5.4"
+    mixme "^1.1.0"
     pad "^3.2.0"
-    plug-and-play "^2.4.0"
+    plug-and-play "^2.5.8"
 
 signal-exit@^3.0.0, signal-exit@^3.0.2, signal-exit@^3.0.7:
   version "3.0.7"
