@@ -17,7 +17,7 @@
     "url": "https://github.com/p3drosola/Backbone.VirtualCollection.git"
   },
   "dependencies": {
-    "backbone": "1.2.1",
+    "backbone": "1.6.0",
     "underscore": "*"
   },
   "scripts": {
