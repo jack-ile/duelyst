@@ -9,7 +9,7 @@
     "electron-localshortcut": "^3.2.1",
     "electron-window": "^0.8.1",
     "lodash.debounce": "^4.0.6",
-    "minimist": "^1.1.2",
+    "minimist": "^1.2.8",
     "node-uuid": "*",
     "os-name": "^2.0.1",
     "shell": "^0.9.4"
