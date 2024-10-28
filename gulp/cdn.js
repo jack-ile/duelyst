@@ -77,10 +77,13 @@ function getPublisher() {
   if (process.env.S3_ASSETS_BUCKET === undefined) {
     throw new Error('S3_ASSETS_BUCKET must be set');
   }
-  return awspublish.create({
+
+  //console.log("access: " + config.get('aws.accessKey') + ", secret: " + config.get('aws.secretKey') + "\n");
+  var result = awspublish.create({
     region: config.get('aws.region'),
     params: {
       Bucket: config.get('aws.assetsBucketName'),
+      ACL: 'private',
     },
     credentials: {
       accessKeyId: config.get('aws.accessKey'),
@@ -88,6 +91,8 @@ function getPublisher() {
       signatureVersion: 'v3',
     },
   });
+  console.log(JSON.stringify(result, null, 4));
+  return result;
 }
 
 // Uploads web assets (HTML, CSS, JS, and locales).

@@ -27,3 +27,8 @@ variable "certificate_arn" {
   type        = string
   description = "The ACM SSL certificate ARN to use for this distribution."
 }
+
+variable "route53_zone_id" {
+  type        = string
+  description = "Zone ID of the Route 53 database storing routing records."
+}

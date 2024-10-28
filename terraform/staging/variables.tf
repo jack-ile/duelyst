@@ -48,12 +48,17 @@ variable "replays_bucket_name" {
   type = string
 }
 
-# The domain name for the staging API service, e.g. play.duelyst.com.
+# The domain name for the registered domain that every subdomain gets derived from, e.g. duelyst.com.
+variable "registered_domain_name" {
+  type = string
+}
+
+# The subdomain name for the staging API service, e.g. play.duelyst.com.
 variable "staging_domain_name" {
   type = string
 }
 
-# The domain name for the CDN, e.g. cdn.duelyst.com.
+# The subdomain name for the CDN, e.g. cdn.duelyst.com.
 variable "cdn_domain_name" {
   type = string
 }

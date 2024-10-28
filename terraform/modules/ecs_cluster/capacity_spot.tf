@@ -3,8 +3,9 @@ locals {
   # Using on-demand price essentially guarantees Spot placement, and we still
   # get a 70% discount when placement succeeds.
   prices = {
-    "t4g.micro" = 0.0084 # 0.0025 after 70% discount. 
-    "t4g.small" = 0.0168 # 0.0050 after 70% discount. Gives 2x RAM.
+    "t3.micro"  = 0.0104 # 0.00312 after 70% discount from spot instantiation.
+    "t4g.micro" = 0.0084 # 0.00252 after 70% discount from spot instantiation. 
+    "t4g.small" = 0.0168 # 0.00504 after 70% discount from spot instantiation. Gives 2x RAM.
   }
 }
 

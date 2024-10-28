@@ -59,6 +59,11 @@ variable "sp_service_port" {
   default     = 8000
 }
 
+variable "staging_domain_name" {
+  type        = string
+  description = "The Staging domain name to use to route API requests to the Staging environment."
+}
+
 variable "cdn_domain_name" {
   type        = string
   description = "The CDN domain name to use for static asset redirects."
@@ -67,4 +72,9 @@ variable "cdn_domain_name" {
 variable "cdn_path_prefix" {
   type        = string
   description = "The CDN path prefix to use for static asset requests, e.g. 'staging/'."
+}
+
+variable "route53_zone_id" {
+  type        = string
+  description = "Zone ID of the Route 53 database storing routing records."
 }

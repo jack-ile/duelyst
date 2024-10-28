@@ -5,8 +5,9 @@ data "aws_ssm_parameter" "postgres_password" {
 }
 
 module "postgres" {
-  source = "../modules/postgres_db"
-  name   = "duelyst-staging"
+  source           = "../modules/postgres_db"
+  name             = "duelyst-staging"
+  postgres_version = "13.14"
   subnet_ids = [
     module.first_subnet.id,
     module.second_subnet.id,

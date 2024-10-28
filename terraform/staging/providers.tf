@@ -1,5 +1,5 @@
 terraform {
-  required_version = "~> 1.3.0"
+  required_version = "~> 1.5.4"
 
   backend "s3" {
     key = "staging"
@@ -8,7 +8,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.32.0"
+      version = "~> 5.43.0"
     }
   }
 }

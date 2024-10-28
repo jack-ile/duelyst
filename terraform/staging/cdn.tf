@@ -19,10 +19,12 @@ module "cloudfront_cdn" {
   app_domain_name  = var.staging_domain_name
   cdn_domain_name  = var.cdn_domain_name
   cdn_path_prefix  = "staging/"
-  certificate_arn  = module.cdn_ssl_certificate.arn
+  certificate_arn  = module.cdn_ssl_certificate.validated_arn
+  route53_zone_id = data.aws_route53_zone.route53_zone.zone_id
 }
 
 module "cdn_ssl_certificate" {
-  source      = "../modules/ssl_certificate"
-  domain_name = var.cdn_domain_name
+  source          = "../modules/ssl_certificate"
+  domain_name     = var.cdn_domain_name
+  route53_zone_id = data.aws_route53_zone.route53_zone.zone_id
 }

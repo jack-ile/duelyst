@@ -15,7 +15,7 @@ variable "subnets" {
 variable "architecture" {
   type        = string
   description = "The machine architecture to use for ECS-EC2 instances (amd64 or arm64)."
-  default     = "arm64"
+  default     = "arm64" #TODO: make the input value for this variable programmatic by whatever architecture the containers are
 }
 
 variable "use_custom_ami" {

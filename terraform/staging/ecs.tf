@@ -1,8 +1,10 @@
 module "ecs_cluster" {
   source           = "../modules/ecs_cluster"
   name             = "duelyst-staging"
-  use_custom_ami   = true
+  architecture     = "amd64" #TODO: make the input value for this variable programmatic by whatever architecture the containers are
+  use_custom_ami   = true #TODO: make this setting programmatically determined instead of a manual boolean
   custom_ami_id    = var.custom_ami_id
+  instance_type    = "t3.micro" #TODO: have this be a global variable setting instead of a hard-coded setting like this
   root_volume_size = 8
   ssh_public_key   = var.ssh_public_key
 
@@ -27,7 +29,7 @@ module "ecs_service_api" {
   capacity_provider = module.ecs_cluster.spot_capacity_provider
   task_role         = module.ecs_cluster.task_role
   image_name        = "public.ecr.aws/${var.ecr_registry_id}/${module.ecr_repository_api.id}"
-  deployed_version  = "1.97.13"
+  deployed_version  = "1.0.7"
   container_count   = 1
   container_mem     = 450
   service_port      = 3000
@@ -40,7 +42,8 @@ module "ecs_service_api" {
     { name = "FIREBASE_PROJECT_ID", value = var.firebase_project },
     { name = "CDN_DOMAIN_NAME", value = var.cdn_domain_name },
     { name = "DEFAULT_GAME_SERVER", value = var.staging_domain_name },
-    { name = "S3_REPLAYS_BUCKET", value = var.replays_bucket_name }
+    { name = "S3_REPLAYS_BUCKET", value = var.replays_bucket_name },
+    { name = "EXPRESS_LOGGING", value = true }
   ]
 
   secrets = [
@@ -58,7 +61,7 @@ module "ecs_service_game" {
   capacity_provider = module.ecs_cluster.spot_capacity_provider
   task_role         = module.ecs_cluster.task_role
   image_name        = "public.ecr.aws/${var.ecr_registry_id}/${module.ecr_repository_game.id}"
-  deployed_version  = "1.97.13"
+  deployed_version  = "1.0.7"
   container_count   = 1
   container_mem     = 350
   service_port      = 8001
@@ -83,7 +86,7 @@ module "ecs_service_sp" {
   capacity_provider = module.ecs_cluster.spot_capacity_provider
   task_role         = module.ecs_cluster.task_role
   image_name        = "public.ecr.aws/${var.ecr_registry_id}/${module.ecr_repository_sp.id}"
-  deployed_version  = "1.97.13"
+  deployed_version  = "1.0.7"
   container_count   = 1
   container_mem     = 350
   service_port      = 8000
@@ -107,8 +110,8 @@ module "ecs_service_worker" {
   capacity_provider = module.ecs_cluster.spot_capacity_provider
   task_role         = module.ecs_cluster.task_role
   image_name        = "public.ecr.aws/${var.ecr_registry_id}/${module.ecr_repository_worker.id}"
-  deployed_version  = "1.97.13"
-  container_count   = 1
+  deployed_version  = "1.0.7"
+  container_count   = 1 # Change to 0 to refrain from running worker service (recommended if applying database migrations). Leave as 1 otherwise.
   container_mem     = 450
 
   environment_variables = [
@@ -135,8 +138,8 @@ module "ecs_service_migrate" {
   capacity_provider = module.ecs_cluster.spot_capacity_provider
   task_role         = module.ecs_cluster.task_role
   image_name        = "public.ecr.aws/${var.ecr_registry_id}/${module.ecr_repository_migrate.id}"
-  deployed_version  = "1.97.13"
-  container_count   = 0 # Change to 1 to apply database migrations.
+  deployed_version  = "1.0.7"
+  container_count   = 0 # Change to 1 to apply database migrations. Leave as 0 otherwise.
   container_mem     = 350
 
   environment_variables = [

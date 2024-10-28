@@ -44,7 +44,7 @@ variable "container_cpu" {
 variable "container_mem" {
   type        = number
   description = "The amount of memory to allocate to each container."
-  default     = 350 # Allows for 2 containers on a t4g.micro instance.
+  default     = 350 # Allows for 2 containers on a t4g.micro or t3.micro instance.
 }
 
 variable "command" {
